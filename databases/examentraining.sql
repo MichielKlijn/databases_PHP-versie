@@ -1,33 +1,39 @@
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `inschrijvingen` (
-  `id_leerling` int NOT NULL,
-  `vak` varchar(16) NOT NULL,
-  PRIMARY KEY (`id_leerling`,`vak`),
-  KEY `vak` (`vak`),
-  CONSTRAINT `inschrijvingen_ibfk_1` FOREIGN KEY (`id_leerling`) REFERENCES `leerlingen` (`id_leerling`) ON DELETE RESTRICT ON UPDATE RESTRICT,
-  CONSTRAINT `inschrijvingen_ibfk_2` FOREIGN KEY (`vak`) REFERENCES `vakken` (`vak`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-INSERT INTO `inschrijvingen` (`id_leerling`, `vak`) VALUES (153052,'Engels'),(153052,'natuurkunde');
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `leerlingen` (
-  `id_leerling` int NOT NULL,
-  `naam` text NOT NULL,
-  `klas` text NOT NULL,
-  PRIMARY KEY (`id_leerling`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-INSERT INTO `leerlingen` (`id_leerling`, `naam`, `klas`) VALUES (153052,'Jan','Groningen');
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+DROP DATABASE IF EXISTS `examentraining`;
+CREATE DATABASE `examentraining`;
+USE `examentraining`;
+
 CREATE TABLE `vakken` (
-  `vak` varchar(16) NOT NULL,
-  `docentcode` varchar(3) NOT NULL,
-  `docentnaam` text NOT NULL,
-  `lokaal` text,
-  PRIMARY KEY (`vak`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-INSERT INTO `vakken` (`vak`, `docentcode`, `docentnaam`, `lokaal`) VALUES ('Engels','OSI','Osinga','A201'),('natuurkunde','PLP','Palsma','B206');
+`vak` varchar(150) PRIMARY KEY,
+`docentcode` varchar(300) ,
+`docentnaam` varchar(500),
+`lokaal` varchar(300)
+);
+CREATE TABLE `leerling` (
+`naam` varchar(500), 
+`leerlingnummer` varchar(60) PRIMARY KEY,
+`klas` varchar(3)
+);
+
+CREATE TABLE `inschrijvingen` (
+`leerlingnummer` varchar(60),
+`vak` varchar(105)
+); 
+
+INSERT INTO `vakken` (`vak`, `docentcode`, `docentnaam`, `lokaal`) VALUES
+('Aardrijkskunde', 'KJL', 'Kopelle', 'B106'),
+('Informatica', 'VNR', 'Van der Veen', 'B304');
+
+INSERT INTO `leerling` (`naam`, `leerlingnummer`, `klas`) VALUES
+('Peyman Fatehi', '154317', 'A4a'),
+('Michiel Klijn', '154011', 'A4a'),
+('Ádám Perl', '154021', 'A4a'),
+('Ilan den Haring', '154397', 'A4b'),
+('Kevin Werleman', '153989', 'A4b');
+
+INSERT INTO `inschrijvingen` (`leerlingnummer`, `vak`) VALUES
+('154317', 'geschiedenis'),
+('154011', 'Wiskunde'),
+('154021', 'Duits'),
+('154397', 'Fuck you'),
+('153989', 'Nederlands');
+

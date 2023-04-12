@@ -1,0 +1,18 @@
+* {
+	margin: 0;
+	padding: 0;
+	display: block;
+	font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+Kleuren {
+    background: rgb(205, 133, 63);
+    font-size: 62.5%;
+}
+
+Kleur {
+	background-color: rgb(160, 82, 45);
+    font-size: 4.0rem;
+	margin: 0rem 80rem 4.0rem 20rem;
+	border-bottom: 2.0rem solid rgb(210, 180, 140);
+}

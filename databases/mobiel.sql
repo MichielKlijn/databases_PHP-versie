@@ -32,7 +32,8 @@ INSERT INTO `vrienden` (`id`, `naam`, `plaats`) VALUES
 (6, 'Frits', 'Delft'),
 (7, 'Gonny', 'Groningen'),
 (8, 'Hajar', 'Emmen'),
-(9, 'Ingo', 'Assen');
+(9, 'Ingo', 'Assen'),
+(10, 'Michiel', 'Groningen')
 
 INSERT INTO `telefoons` (`code`, `merk`, `type`) VALUES
 ('a1', 'Apple', 'iPhone 13'),
@@ -45,7 +46,8 @@ INSERT INTO `telefoons` (`code`, `merk`, `type`) VALUES
 ('s2', 'Samsung', 'Galaxy S23'),
 ('s3', 'Samsung', 'Z flip 4'),
 ('x1', 'Xiaomi', '12 Lite'),
-('x2', 'Xiaomi', '12X');
+('x2', 'Xiaomi', '12X'),
+('s4', 'Samsung', 'Galaxy A51');
 
 INSERT INTO `aankopen` (`id`, `code`, `prijs`) VALUES
 (1, 'a1', 819),
@@ -59,3 +61,5 @@ INSERT INTO `aankopen` (`id`, `code`, `prijs`) VALUES
 (9, 's3', 929),
 (7, 'x1', 415),
 (8, 'x2', 499);
+
+UPDATE vrienden SET naam = 'Jos', plaats = 'Amersfoort' WHERE id = 10
